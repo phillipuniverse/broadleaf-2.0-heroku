@@ -7,8 +7,8 @@ export CATALINA_BASE
 
 #remove the extraneous webapps that we don't need
 rm -rf $CATALINA_BASE/webapps/cargocpc*
-rm -rf $CATALINA_BASE/host-manager
-rm -rf $CATALINA_BASE/manager
+rm -rf $CATALINA_BASE/webapps/host-manager
+rm -rf $CATALINA_BASE/webapps/manager
 
 #copy over the Heroku config files
 cp ./site/heroku-server.xml $CATALINA_BASE/conf/server.xml
@@ -17,7 +17,7 @@ cp ./site/heroku-server.xml $CATALINA_BASE/conf/server.xml
 chmod a+x ./site/target/cargo/installs/apache-tomcat-7.0.29/apache-tomcat-7.0.29/bin/*.sh
 
 #set the correct port and database settings
-JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=256M -Xmx256M -Dhttp.port=$PORT -DDATABASE_URL=$DATABASE_URL"
+JAVA_OPTS="$JAVA_OPTS -XX:MaxPermSize=768M -Xmx768M -Dhttp.port=$PORT -DDATABASE_URL=$DATABASE_URL"
 export JAVA_OPTS
 
 #start Tomcat
