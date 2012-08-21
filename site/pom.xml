@@ -115,8 +115,8 @@
 			<artifactId>broadleaf-framework-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
+		    <groupId>postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
