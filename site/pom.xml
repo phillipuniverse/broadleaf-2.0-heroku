@@ -55,8 +55,8 @@
 			            <type>standalone</type>
 			            <deployables>
 			                <deployable>
-			                    <groupId>com.phillip</groupId>
-			                    <artifactId>site-war</artifactId>
+			                    <groupId>com.mycompany</groupId>
+			                    <artifactId>site</artifactId>
 			                    <type>war</type>
 			                    <properties>
 			                        <context>ROOT</context>
