@@ -90,14 +90,6 @@
 			                        <context>ROOT</context>
 			                    </properties>
 			                </deployable>
-			                <deployable>
-                                <groupId>com.mycompany</groupId>
-                                <artifactId>admin</artifactId>
-                                <type>war</type>
-                                <properties>
-                                    <context>admin</context>
-                                </properties>
-                            </deployable>
 			            </deployables>
 			        </configuration>
 			    </configuration>
