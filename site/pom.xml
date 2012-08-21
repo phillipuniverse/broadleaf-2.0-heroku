@@ -30,7 +30,35 @@
 					<webappDirectory>${webappDirectory}</webappDirectory>
 				</configuration>
 			</plugin>
-			
+			<plugin>
+			    <artifactId>maven-clean-plugin</artifactId>
+			    <version>2.4.1</version>
+			    <configuration>
+			        <filesets>
+			            <fileset>
+			                <directory>target/</directory>
+			                <includes>
+			                    <include>**/*</include>
+			                </includes>
+			                <!-- This exclusion is only necessary in the site project and is for the Tomcat plugin that will be addressed a little later -->
+			                <excludes>
+			                    <exclude>cargo/**</exclude>
+			                </excludes>
+			                <followSymlinks>false</followSymlinks>
+			            </fileset>
+			        </filesets>
+			        <excludeDefaultDirectories>true</excludeDefaultDirectories>
+			    </configuration>
+			    <executions>
+			        <execution>
+			            <id>auto-clean</id>
+			            <phase>install</phase>
+			            <goals>
+			                <goal>clean</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>
 			<plugin>
 			    <groupId>org.codehaus.cargo</groupId>
 			    <artifactId>cargo-maven2-plugin</artifactId>
@@ -62,6 +90,14 @@
 			                        <context>ROOT</context>
 			                    </properties>
 			                </deployable>
+			                <deployable>
+                                <groupId>com.mycompany</groupId>
+                                <artifactId>admin</artifactId>
+                                <type>war</type>
+                                <properties>
+                                    <context>admin</context>
+                                </properties>
+                            </deployable>
 			            </deployables>
 			        </configuration>
 			    </configuration>
