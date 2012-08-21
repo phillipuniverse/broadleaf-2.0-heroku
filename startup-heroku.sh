@@ -2,8 +2,8 @@
 CATALINA_BASE=`pwd`/site/target/cargo/configurations/tomcat7x
 export CATALINA_BASE
 
-#move the admin application to the tomcat deploy. Commented out because not enough memory on heroku free to deploy both applications
-#mv ./admin/target/admin.war $CATALINA_BASE/webapps
+#move the admin application to the tomcat deploy
+mv ./admin/target/admin.war $CATALINA_BASE/webapps
 
 #remove the extraneous webapps that we don't need
 rm -rf $CATALINA_BASE/webapps/cargocpc*
