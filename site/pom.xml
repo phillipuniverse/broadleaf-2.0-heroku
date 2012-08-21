@@ -30,6 +30,53 @@
 					<webappDirectory>${webappDirectory}</webappDirectory>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+			    <groupId>org.codehaus.cargo</groupId>
+			    <artifactId>cargo-maven2-plugin</artifactId>
+			    <configuration>
+			        <container>
+			            <containerId>tomcat7x</containerId>
+			            <zipUrlInstaller>
+			                <url>http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.29/bin/apache-tomcat-7.0.29.zip</url>
+			            </zipUrlInstaller>
+			            <dependencies>
+			                <dependency>
+			                    <groupId>javax.activation</groupId>
+			                    <artifactId>activation</artifactId>
+			                </dependency>
+			                <dependency>
+			                    <groupId>javax.mail</groupId>
+			                    <artifactId>mail</artifactId>
+			                </dependency>
+			            </dependencies>
+			        </container>
+			        <configuration>
+			            <type>standalone</type>
+			            <deployables>
+			                <deployable>
+			                    <groupId>com.phillip</groupId>
+			                    <artifactId>site-war</artifactId>
+			                    <type>war</type>
+			                    <properties>
+			                        <context>ROOT</context>
+			                    </properties>
+			                </deployable>
+			            </deployables>
+			        </configuration>
+			    </configuration>
+			    <executions>
+			        <execution>
+			            <phase>package</phase>
+			            <goals>
+			                <goal>install</goal>
+			                <goal>configure</goal>
+			                <goal>deploy</goal>
+			                <goal>package</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>
 
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
